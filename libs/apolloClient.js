@@ -10,7 +10,7 @@ export default function createApolloClient(initialState, ctx) {
   return new ApolloClient({
     ssrMode: Boolean(ctx),
     link: new HttpLink({
-      uri: 'https://cunning-hamster-10.hasura.app/v1/graphql',
+      uri: process.env.HASURA_GRAPHQL_ENDPOINT + '/v1/graphql',
       headers: {
         'x-hasura-admin-secret': process.env.HASURA_ADMIN_SECRET
       },
